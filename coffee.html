@@ -52,20 +52,32 @@
     // myImage.setAttribute("src", "static/coffee_beans.jpg");
     $('img#coffee_image').attr("src", "static/coffee_beans.jpg");
 
-    var myRevenueMessage = document.getElementById("revenue");
-
     // upon click, image changes to coffee machine
     // after 1.5 sec, switches to coffee mug for 2.5 sec
     // lastly, switches back to original image (coffee beans)
     
     var drinksOrdered = [];
+    var totalRevenue = 0
+
+    // for drink in drinksOrdered, if item is "espresso", append espresso price to total Revenue; else if ..... then, put revenue array b/w span element in html
+
+    var prices = {
+        "brew": 2.05,
+        "espresso": 3.25,
+        "latte": 4.15,
+        "hot-chocolate": 2.50
+    };
 
     function makeCoffee(drinkType) {
          $('img#coffee_image').attr("src", "static/coffee_machine.jpg");
 
          drinksOrdered.push(drinkType);
+         totalRevenue = totalRevenue + prices[drinkType];
+        $("#revenue").html(totalRevenue);
 
          console.log(drinksOrdered);
+         console.log(totalRevenue);
+         
 
          setTimeout(function() {
              $('img#coffee_image').attr("src", "static/coffee_mug.jpg");
