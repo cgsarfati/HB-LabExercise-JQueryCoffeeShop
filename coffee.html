@@ -57,8 +57,15 @@
     // upon click, image changes to coffee machine
     // after 1.5 sec, switches to coffee mug for 2.5 sec
     // lastly, switches back to original image (coffee beans)
-    function makeCoffee() {
+    
+    var drinksOrdered = [];
+
+    function makeCoffee(drinkType) {
          $('img#coffee_image').attr("src", "static/coffee_machine.jpg");
+
+         drinksOrdered.push(drinkType);
+
+         console.log(drinksOrdered);
 
          setTimeout(function() {
              $('img#coffee_image').attr("src", "static/coffee_mug.jpg");
@@ -71,7 +78,7 @@
 
     // call event handler to execute make coffee images upon click
     // myImage.addEventListener("click", makeCoffee);
-    $('#coffee_image').on('click', makeCoffee);
+    $('#coffee_image').on('click', function () {return makeCoffee('brew');});
 
 </script>
 
