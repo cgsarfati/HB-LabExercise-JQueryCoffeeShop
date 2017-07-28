@@ -71,13 +71,12 @@
     function makeCoffee(drinkType) {
          $('img#coffee_image').attr("src", "static/coffee_machine.jpg");
 
+         // append order to array
          drinksOrdered.push(drinkType);
+         // appends to total revenue count
          totalRevenue = totalRevenue + prices[drinkType];
-        $("#revenue").html(totalRevenue);
-
-         console.log(drinksOrdered);
-         console.log(totalRevenue);
-         
+         // update html with current price
+         $("#revenue").html(totalRevenue);
 
          setTimeout(function() {
              $('img#coffee_image').attr("src", "static/coffee_mug.jpg");
