@@ -79,6 +79,9 @@
     // call event handler to execute make coffee images upon click
     // myImage.addEventListener("click", makeCoffee);
     $('#coffee_image').on('click', function () {return makeCoffee('brew');});
+    $("#espresso").on('click', function() {return makeCoffee("espresso");});
+    $("#latte").on('click', function() {return makeCoffee("latte");});
+    $("#hot-chocolate").on('click', function() {return makeCoffee("hot-chocolate");});
 
 </script>
 
